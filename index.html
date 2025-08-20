@@ -4,64 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1 Equipo 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Prompt', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff0f3;
+            background: linear-gradient(180deg, #fff3e6 0%, #ffe6eb 100%);
             color: #2c2c2c;
         }
 
         header {
-            background-color: #e60039;
+            background: linear-gradient(90deg, #ffb347, #ff6978);
             color: white;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             align-items: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 5s infinite;
+            z-index: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
         }
 
         header img {
-            height: 60px;
-            margin-right: 20px;
+            height: 80px;
+            margin-bottom: 15px;
+            z-index: 1;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.2em;
+            font-size: 2.8em;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
 
         nav {
-            background-color: #ffd5dd;
+            background-color: #fff0d9;
             padding: 12px 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         nav a {
-            margin-right: 20px;
+            margin: 0 15px;
             text-decoration: none;
-            color: #b3002d;
+            color: #d1505c;
             font-weight: bold;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.2s;
         }
 
         nav a:hover {
-            color: #e60039;
+            color: #ff6978;
+            transform: scale(1.1);
         }
 
         main {
-            padding: 20px;
+            padding: 30px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .info-background {
+            background-image: url('fondo-teto-flowerboy.jpg'); /* 👈 Asegúrate de que este archivo esté en el mismo directorio */
+            background-size: cover;
+            background-position: center;
+            padding: 50px 25px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .info-background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.75); /* Blanco suave para que el texto se lea bien */
+            backdrop-filter: blur(4px);
+            border-radius: 20px;
         }
 
         .equipo-info {
-            background-color: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+            background-color: transparent;
+            padding: 30px;
+            border-radius: 15px;
         }
 
         .equipo-info h2 {
-            color: #e60039;
+            color: #ff6978;
+            margin-top: 0;
+            font-size: 1.8em;
         }
 
         .equipo-info ul {
@@ -73,15 +138,20 @@
         }
 
         .imagen-coqueta {
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: center;
         }
 
         .imagen-coqueta img {
             max-width: 100%;
             height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .imagen-coqueta img:hover {
+            transform: scale(1.02);
         }
     </style>
 </head>
@@ -89,7 +159,7 @@
 
     <header>
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" alt="Logo">
-        <h1>1 equipo 1 🔥</h1>
+        <h1>1 equipo 1 💐🎤</h1>
     </header>
 
     <nav>
@@ -99,18 +169,20 @@
     </nav>
 
     <main>
-        <section class="equipo-info">
-            <h2>¿Quiénes somos?</h2>
-            <p>
-                Somos un equipo con muchas ganas y buena onda. Nos encanta el desarrollo web y siempre estamos buscando cómo hacer cosas más rápidas, modernas y con flow. Cada uno aporta su estilo:
-            </p>
-            <ul>
-                <li><strong>Alfonso</strong>: El master del frontend y diseño con estilo 🔧✨</li>
-                <li><strong>Aaron</strong>: Backend ninja, lo que no ves pero hace que todo funcione 🚀</li>
-                <li><strong>Mario</strong>: Full stack sin miedo al éxito 💻🧠</li>
-            </ul>
-            <p>Nos gusta trabajar en equipo y armar proyectos que no solo funcionen bien, sino que se vean épicos y den gusto usarlos 🕹️.</p>
-        </section>
+        <div class="info-background">
+            <section class="equipo-info">
+                <h2>¡Hola! Somos el team más épico del desarrollo web 🎶</h2>
+                <p>
+                    Nos gusta codear con estilo y buena vibra. Somos tres compas que mezclan creatividad, técnica y un poquito de locura para armar sitios con onda:
+                </p>
+                <ul>
+                    <li><strong>Alfonso</strong>: El que le mete magia visual al frontend ✨</li>
+                    <li><strong>Aaron</strong>: Backend boss, hace que todo fluya sin que se rompa 🚀</li>
+                    <li><strong>Mario</strong>: Full Stack warrior, le entra a todo sin miedo 💾</li>
+                </ul>
+                <p>¿Nuestro lema? Si no brilla, no sirve. Nos gusta lo moderno, lo rápido y lo que deja huella 💥</p>
+            </section>
+        </div>
 
         <div class="imagen-coqueta">
             <img src="imagencoqueta.jpg" alt="Imagen coqueta del equipo">
